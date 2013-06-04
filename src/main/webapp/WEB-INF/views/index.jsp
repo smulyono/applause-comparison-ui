@@ -36,6 +36,10 @@
 	max-height : 600px;
 }
 
+.table tr:hover td{
+	background-color: #ececec !important;
+}
+
 </style>
 </head>
 

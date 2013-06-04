@@ -3,6 +3,9 @@
         <div class="alert alert-info" ng-show="loading">
             <i class="icon-refresh"></i> Loading data ...
         </div>
+        <div class="alert alert-error" ng-show="dataerror">
+            <i class="icon-warning-sign"></i> There is a problem during fetching the data. Please try again later.
+        </div>
 
         <div class="clearfix">
             <div class="pull-left form-search">

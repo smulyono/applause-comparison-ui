@@ -1,4 +1,9 @@
-
+/*
+ * Utility Service, methods here are used as Helper or Utility by other Controller
+ * and Services
+ *
+ * @author : Sanny Mulyono <smulyono@me.com -- http://smulyono.github.io/>
+ */
 angservices.service('utilService', function($rootScope){
     // Standard utility to do deep-clone object
     this.clone = function(sourceobject){

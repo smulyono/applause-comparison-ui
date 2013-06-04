@@ -72,11 +72,16 @@
 				</a>
 			</div>
 		</div>
+		<br />
 		<div class="row-fluid">
 			<div class="alert alert-info" ng-show="loading">
 				<i class="icon-refresh"></i> Loading data ...
 			</div>
 
+			<div class="alert alert-error" ng-show="dataerror">
+				<i class="icon-warning-sign"></i> There problem fetching data
+				<button class="btn btn-warning" ng-click="reloadApp()">Reload</button>
+			</div>
 			<table class="table table-bordered table-condensed table-striped row-fluid">
 				<tr>
 					<th></th>

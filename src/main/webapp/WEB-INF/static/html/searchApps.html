@@ -1,0 +1,137 @@
+<div id="searchAppWindow" ng-controller="ui2Ctrl">
+    <div class="row-fluid">
+        <div class="alert alert-info" ng-show="loading">
+            <i class="icon-refresh"></i> Loading data ...
+        </div>
+
+        <div class="clearfix">
+            <div class="pull-left form-search">
+                <input class="search-query" ng-model="keyQuery" placeholder="search apps" />
+                <button class="btn btn-primary" ng-click="queryUpdate()">Search</button>
+            </div>
+            <!-- Configuration -->
+            <div class="pull-right form-search">
+                <label> Page Size  </label>
+                <div class="input-append">
+                    <input class="span3" ng-model="shownResult"/>
+                    <button class="btn btn-success" ng-click="searchResults()">Change</button>
+                </div>
+            </div>
+        </div>
+        <div class="pagination pagination-centered clearfix">
+            <ul>
+                <li ng-class="{disabled: currentPage == 1}"
+                    ng-click="previousPage()">
+                    <a href="#">
+                        &laquo; Prev
+                    </a>
+                </li>
+                <li ng-repeat="(pagenumber,value) in existingPage"
+                    ng-class="{active: currentPage == value}">
+                    <a href="#" ng-click="changePage(value)"
+                        >
+                        {{ value }}
+                    </a>
+                </li>
+                <li ng-class="{disabled: currentPage >= totalPages}"
+                    ng-click="nextPage()">
+                    <a href="#">
+                        Next &raquo;
+                    </a>
+                </li>
+                <li>
+                    <a href="#" ng-click="loadMoreResults()">
+                        Load More <i class="icon-repeat icon"></i>
+                    </a>
+                </li>
+            </ul>
+            <p>
+                <em>Total Retrieved : {{ searchCount }} out of {{ searchTotalCount}}</em>
+            </p>
+
+        </div>
+
+        <div class="alert alert-warning" ng-show="!allowToAddApp()">
+            <strong>Warning!</strong> Only 5 Applications can be Added, Try to remove existing application to continue
+        </div>
+        <table class="table table-bordered table-condensed table-striped row-fluid">
+            <tr>
+                <th>Logo</th>
+                <th>
+                    <a href="" ng-click="sortBy('title')">
+                        App Name
+                    </a>
+                </th>
+                <th>
+                    <a href="" ng-click="sortBy('applause_score')">
+                        Score
+                    </a>
+                </th>
+                <th>
+                    <a href="" ng-click="sortBy('price')">
+                        Price
+                    </a>
+
+                </th>
+                <th>
+                    Action
+                    <span class="label label-success" ng-show="addloading">Loading</span>
+                </th>
+            </tr>
+            <tr>
+                <th></th>
+                <th colspan="4">
+                    <div class="form-inline">
+                        <input class="span8" id="localquery" ng-model="query"
+                            placeholder="Filter Apps by Title and Description"
+                            ng-change="searchResults()"/>
+                    </div>
+                </th>
+            </tr>
+            <tr data-ng-repeat="(index,data) in filteredData[currentPage]">
+                <td> <img data-ng-src="{{data['img-url']}}" class="showImgIcon" /> </td>
+                <td>
+                    <button class="btn btn-primary"
+                        data-toggle="collapse"
+                        data-target="#description{{index}}"
+                        ng-show="data.description != undefined">
+                        <i class="icon-tasks icon-white icon"></i>
+                    </button>
+                    <a href="{{data.view_url}}" target="_blank">
+                        {{ data.title }}
+                    </a>
+                    <div id="description{{index}}"
+                        data-parent-ref="description{{index}}"
+                        class="collapse descriptionsearch">
+                        <p class="text-muted descriptioninfo">
+                            {{ data.description }}
+                        </p>
+                    </div>
+                </td>
+                <td> {{ data.applause_score }}</td>
+                <td> {{ data.price }} </td>
+                <td>
+                    <button ng-show="isAppExists(data.app_id)"
+                        class="btn btn-danger"
+                        ng-click="removeApp(data.app_id)"
+                        >
+                        <i class="icon-remove icon-white"></i> Remove
+                    </button>
+                    <button type="button" ng-hide="(isAppExists(data.app_id) || isAppAdding(data.app_id))"
+                        class="btn btn-success"
+                        ng-click="addApp(data.app_id)"
+                        ng-disabled="!allowToAddApp()"
+                        >
+                        <i class="icon-ok icon-white"></i>Add
+                    </button>
+                    <button type="button" ng-show="isAppAdding(data.app_id)"
+                        class="btn btn-success"
+                        disabled
+                        >
+                        <i class="icon-ok icon-white"></i>Adding
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

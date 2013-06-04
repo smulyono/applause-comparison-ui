@@ -1,4 +1,4 @@
-package me.smulyono.gaeskeleton.controller;
+package me.smulyono.cs2302applause.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +16,7 @@ public class PageController {
 	@RequestMapping(method=RequestMethod.GET)
 	public String home(ModelMap model){
 		log.debug(">>> Home controller <<");
+		model.addAttribute("version", "1.0.0");
 		return "index";
 	}
 }

@@ -20,7 +20,7 @@
 
 .descriptioninfo {
 	padding-left: 45px;
-	max-width : 750px;
+	max-width : 400px;
 }
 
 .showImgIcon {

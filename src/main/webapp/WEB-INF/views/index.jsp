@@ -48,7 +48,7 @@
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="brand" href="#">CS 2302 - Applause Competitive Analysis - ${version}</a>
+				<a class="brand" href="#">CS 2302 - Applause Competitive Analysis </a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li class="active"><a href="#">Home</a></li>
@@ -90,12 +90,14 @@
 							ng-click="removeApplication(key)">
 							<i class="icon icon-white icon-remove"></i>
 						</button>
-						<div class="text-center">
-							<img data-ng-src="{{value['img-url']}}" class="showImgIcon" />
-						</div>
-						<div class="row text-center">
-							{{ value.title }}
-						</div>
+	                    <a href="{{value.view_url}}" target="_blank">
+							<div class="text-center">
+								<img data-ng-src="{{value['img-url']}}" class="showImgIcon" />
+							</div>
+							<div class="row text-center">
+								{{ value.title }}
+							</div>
+	                    </a>
 					</th>
 				</tr>
 				<tr ng-repeat="data in attributes">

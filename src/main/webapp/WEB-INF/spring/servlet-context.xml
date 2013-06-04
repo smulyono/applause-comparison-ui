@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
-	
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
 	<!-- Scans within the base package of the application for @Components to 
 		configure as beans -->
@@ -18,8 +15,14 @@
 		to avoid double create the movieController bean.
                 Only controller need this hack.
 	-->	
-	<context:component-scan base-package="me.smulyono.cs2302applause">
+	<!-- since only one class to be loaded, just manually resolve them individually
+		instead of doing component-scan.  
+	
+	<bean id="pageController" class="me.smulyono.cs2302applause.controller.PageController" />
+	 -->
+	<context:component-scan base-package="me.smulyono.cs2302applause.controller">
 	</context:component-scan>
+			
 
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
@@ -36,7 +39,5 @@
 	<mvc:resources location="/WEB-INF/static/css/**" mapping="/css/**"/>
 	<mvc:resources location="/WEB-INF/static/html/**" mapping="/html/**"/>
 	<mvc:default-servlet-handler />
-	
-	<tx:annotation-driven/>
 	
 </beans>

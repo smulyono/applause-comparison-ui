@@ -14,14 +14,10 @@
 		Need DI a message into controller, so auto component scan is disabled, 
 		to avoid double create the movieController bean.
                 Only controller need this hack.
-	-->	
-	<!-- since only one class to be loaded, just manually resolve them individually
-		instead of doing component-scan.  
-	
-	<bean id="pageController" class="me.smulyono.cs2302applause.controller.PageController" />
+                
+		https://developers.google.com/appengine/articles/spring_optimization
 	 -->
-	<context:component-scan base-package="me.smulyono.cs2302applause.controller">
-	</context:component-scan>
+	<bean id="pageController" class="me.smulyono.cs2302applause.controller.PageController" />
 			
 
 	<!-- Enables the Spring MVC @Controller programming model -->

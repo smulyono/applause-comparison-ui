@@ -9,9 +9,9 @@ search apps within Applause.com database.
 
 ## Video Demonstration
 
-[Video - 1]()
+[Video - 1](http://www.screencast.com/t/ZMFhQzW0S2)
 
-[Video - 2]()
+[Video - 2](http://www.screencast.com/t/kkn1X7V6)
 
 
 ## Application URL 

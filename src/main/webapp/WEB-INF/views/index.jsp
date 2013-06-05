@@ -37,7 +37,7 @@
 }
 
 .table tr:hover td{
-	background-color: #ececec !important;
+	background-color: #ececfc !important;
 }
 
 </style>
@@ -72,17 +72,17 @@
 				<a href="#searchAppsModal" role="button" class="btn btn-success"
 					data-toggle="modal"
 					>
-					Add Apps
+					<i class="icon-plus icon-white"></i> Add Apps
 				</a>
 			</div>
 		</div>
 		<br />
 		<div class="row-fluid">
-			<div class="alert alert-info" ng-show="loading">
+			<div class="alert alert-info" ng-show="loading" style="display:none">
 				<i class="icon-refresh"></i> Loading data ...
 			</div>
 
-			<div class="alert alert-error" ng-show="dataerror">
+			<div class="alert alert-error" ng-show="dataerror" style="display:none">
 				<i class="icon-warning-sign"></i> There problem fetching data
 				<button class="btn btn-warning" ng-click="reloadApp()">Reload</button>
 			</div>

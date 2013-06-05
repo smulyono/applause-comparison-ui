@@ -3,7 +3,8 @@
  *
  * @author : Sanny Mulyono <smulyono@me.com -- http://smulyono.github.io/>
  */
-angservices.factory('applauseService', function(APPLAUSE_CONFIG, $http, utilService ){
+var applauseService = angular.module('applauseService', []);
+applauseService.factory('applauseService', function(APPLAUSE_CONFIG, $http, utilService ){
     var factory = {};
     // Extends the configuration passed by application
     factory.config = angular.extend({

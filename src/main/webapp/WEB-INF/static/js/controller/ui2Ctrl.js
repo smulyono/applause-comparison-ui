@@ -67,6 +67,11 @@ angcontroller.controller("ui2Ctrl",
                 retval = false;
                 delete this.addingAppId[appid];
             }
+
+            if (retval && !$scope.addloading){
+                retval = false;
+                delete this.addingAppId[appid];
+            }
             return retval;
         };
 
@@ -79,13 +84,19 @@ angcontroller.controller("ui2Ctrl",
         // This function will let application know whether 5 application limit
         // has been reached.
         // Size of application limit can be configured at @see viewModelService
-        $scope.allowToAddApp = function(){
-            return viewModelService.canAddMoreApp();
+        $scope.allowToAddApp = function(appId){
+            var retval = viewModelService.canAddMoreApp();
+            // also consider if there is application being added
+            if ($scope.addingAppId[appId] == undefined &&
+                retval){
+                return true;
+            }
+            return false;
         };
 
         // Adding specific app from Search Dialog Page to the Main Comparison Page
         $scope.addApp = function(appid){
-            if ($scope.allowToAddApp()){
+            if ($scope.allowToAddApp(appid)){
                 // If application limit not reached then allow to add application
                 $scope.addloading = true;
                 $scope.addingAppId[appid] = appid;

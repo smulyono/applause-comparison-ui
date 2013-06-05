@@ -8,7 +8,8 @@
 // Angular Module initialization
 var angmodule = angular.module("me.smulyono.cs2302applause",
     ["me.smulyono.cs2302applause.controllers",
-     "me.smulyono.cs2302applause.services"]
+     "me.smulyono.cs2302applause.services",
+     "applauseService"]
     );
 
 // Pass in the Constant for Applause Service

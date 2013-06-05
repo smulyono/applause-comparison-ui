@@ -62,10 +62,8 @@ angcontroller.controller("ui1Ctrl",
             // 5 Application ID which will be initially fetched
             var initialAppId = [
                 '304878510',    // skype
-                '284882215',    // facebook
                 '333903271',    // twitter
-                'bdc7ae24-9051-474c-a89a-2b18f58d1317',    // Linkedin
-                '389801252'     // instagram
+                'bdc7ae24-9051-474c-a89a-2b18f58d1317'    // Linkedin
             ];
             // Mark the loading process, so UI can notify user
             $scope.loading = true;

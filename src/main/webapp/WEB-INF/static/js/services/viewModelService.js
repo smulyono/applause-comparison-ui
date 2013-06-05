@@ -39,7 +39,7 @@ angservices.service('viewModelService', function($rootScope, $q, utilService, ap
     this.rowdata = {};
 
     // Limit number of application can be seen in view comparison
-    this.MAX_APPLICATION = 8;
+    this.MAX_APPLICATION = 5;
 
     // variable scope
     var serviceScope = this;

@@ -218,7 +218,7 @@ angcontroller.controller("ui2Ctrl",
         var initialization = function(){
             $scope.addloading = false;
             $scope.addingAppId = {};
-            $scope.keyQuery = 'facebook';
+            $scope.keyQuery = '';
             $scope.queryUpdate();
         }();
     }

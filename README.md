@@ -16,7 +16,20 @@ search apps within Applause.com database.
 
 ## Application URL 
 
-[CS2302applause](http://cs2302applause.appspot.com/)
+[CS2302applause - http://cs2302applause.appspot.com/](http://cs2302applause.appspot.com/)
+
+## How to run it locally
+
+		* Unzip src file
+		> mvn clean package
+		
+		To run Development Server
+		> mvn appengine:devserver
+		
+		OR use Jetty Server
+		> mvn jetty:run
+		
+		Access application on http://localhost:8080/
 
 
 ## Application Structure

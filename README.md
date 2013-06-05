@@ -7,6 +7,18 @@ on heroku that will leverage Applause.com API to compare up to 5 apps side by si
 Your goal for this challenge is to just develop the UI and make basic API call to 
 search apps within Applause.com database.
 
+## Video Demonstration
+
+[Video - 1]()
+
+[Video - 2]()
+
+
+## Application URL 
+
+[CS2302applause](http://cs2302applause.appspot.com/)
+
+
 ## Application Structure
 
 Application was built using : 
@@ -34,7 +46,8 @@ Under Spring MVC, there are several path which is mapped for static resources. T
 	<mvc:resources location="/WEB-INF/static/css/**" mapping="/css/**"/>
 	<mvc:resources location="/WEB-INF/static/html/**" mapping="/html/**"/>
 ```
-
+Some optimization based on this link [here](https://developers.google.com/appengine/articles/spring_optimization
+)
 
 ## AngularJS / HTML Structure
 
@@ -109,9 +122,9 @@ This service class will be responsible to do the GET REST call to Applause end p
 So overall flow can be described as 
 
 ```
-REQUEST :: User --> ui1Ctrl --> viewModelService ---> applauseService.js
+REQUEST :: User --> ui1Ctrl --> viewModelService ---> applauseService
 
-RESPONSE:: applauseService.js --> viewModelService --> ui1Ctrl --> UI
+RESPONSE:: applauseService --> viewModelService --> ui1Ctrl --> UI
 ```
 
 
@@ -119,11 +132,6 @@ RESPONSE:: applauseService.js --> viewModelService --> ui1Ctrl --> UI
 
 Build based on [GAE Spring Skeleton Project](https://github.com/smulyono/gaeskeleton)
 
-
-### Video Demonstration
-
-
-###
 
 
 

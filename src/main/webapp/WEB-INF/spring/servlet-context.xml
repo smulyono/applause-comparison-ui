@@ -31,9 +31,12 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
-	<mvc:resources location="/WEB-INF/static/js/**" mapping="/js/**"/>
-	<mvc:resources location="/WEB-INF/static/css/**" mapping="/css/**"/>
-	<mvc:resources location="/WEB-INF/static/html/**" mapping="/html/**"/>
+	<!--  adding cache period 0 for Appengine Bug 8145 until it resolved 
+		In production, this can be removed since it only affecting the development
+	-->
+	<mvc:resources location="/WEB-INF/static/js/**" mapping="/js/**" cache-period="0"/>
+	<mvc:resources location="/WEB-INF/static/css/**" mapping="/css/**" cache-period="0"/>
+	<mvc:resources location="/WEB-INF/static/html/**" mapping="/html/**" cache-period="0"/>
 	<mvc:default-servlet-handler />
 	
 </beans>
